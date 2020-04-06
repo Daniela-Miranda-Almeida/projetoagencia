@@ -18,4 +18,22 @@ class Contato extends MY_Controller {
         $this->show($html);
     }
 
+    public function lista() {
+        $lista['tabela'] = $this->model->tabela_contato();
+        $html = $this->load->view('common/table', $lista, true);
+      
+        $this->show($html);
+    }
+
+    public function visualizar() {
+        $html = $this->load->view('contato/visualiza');
+
+        $this->show($html);
+    }
+
+    public function delete($id) {
+        $this->model->deletacontato($id);
+        redirect('contato/lista');
+    }
+
 }

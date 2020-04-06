@@ -11,6 +11,7 @@
   <link href="<?= base_url('assets/mdb/css/bootstrap.min.css') ?>" rel="stylesheet">
   <link href="<?= base_url('assets/mdb/css/mdb.min.css') ?>" rel="stylesheet">
   <link href="<?= base_url('assets/mdb/css/style.css') ?>" rel="stylesheet">
+  <link href="<?= base_url('assets/mdb/css/dataTables.bootstrap4.css') ?>" rel="stylesheet">
 </head>
 
 <body>
