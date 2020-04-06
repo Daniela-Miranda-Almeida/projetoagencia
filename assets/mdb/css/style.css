@@ -1,3 +1,7 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 @media (max-width: 1195px) {
     .map iframe{
     margin: 0 auto;
@@ -5,6 +9,17 @@
    
             }
 }
+
+.borda-redonda {
+    border-radius: 18px;
+}
+
+.link-detalhe:hover {
+    text-decoration: underline; 
+	color: #230541
+}
+
+
 
 
 
