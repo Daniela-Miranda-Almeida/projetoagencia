@@ -25,8 +25,9 @@ class Contato extends MY_Controller {
         $this->show($html);
     }
 
-    public function visualizar() {
-        $html = $this->load->view('contato/visualiza');
+    public function visualizar($id) {
+        $data['contato'] = $this->model->detalheContato($id);
+        $html = $this->load->view('agencia/contato/detalhe', $data,true);
 
         $this->show($html);
     }

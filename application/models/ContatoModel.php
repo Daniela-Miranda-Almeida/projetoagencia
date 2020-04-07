@@ -1,11 +1,13 @@
 <?php
 
-include_once APPPATH. 'libraries/Contact.php';
-include_once APPPATH. 'libraries/component/Table.php';
+include_once APPPATH . 'libraries/Contact.php';
+include_once APPPATH . 'libraries/component/Table.php';
 
-class ContatoModel extends CI_Model {
+class ContatoModel extends CI_Model
+{
 
-    public function cria() {
+    public function cria()
+    {
 
         if (sizeof($_POST) == 0) return;
 
@@ -14,42 +16,47 @@ class ContatoModel extends CI_Model {
         $this->form_validation->set_rules('contato[assunto]', 'Assunto', 'trim|required');
         $this->form_validation->set_rules('contato[mensagem]', 'Mensagem', 'trim|required|min_length[3]|max_length[400]');
 
-        if($this->form_validation->run()){
+        if ($this->form_validation->run()) {
 
             $contato = $this->input->post('contato');
             $contact = new Contact();
             $contact->insertContact($contato);
-            return true;  
-               
+            return true;
         } else {
             return false;
         }
-
     }
 
-    public function tabela_contato(){
+    public function tabela_contato()
+    {
         $contato = new Contact();
         $data = $contato->listContact();
-        $label = ['#', 'Nome', 'E-mail','Assunto','Mensagem'];
+        $label = ['#', 'Nome', 'E-mail', 'Assunto', 'Mensagem'];
         $table = new table($data, $label);
-        
-        $table->addHeaderClass('card-header black text-white border');
+
+        $table->addTitleTable('card-header black text-white border');
+        $table->addHeaderClass('text-center ');
         $table->addNomeTable('Lista de Contato');
         $table->addIconTable('fas fa-envelope');
-        $table->useActionButton2();        
-        $table->addIdTable('dataTable');        
-        $table->addUrlVisualizar('index.php/Contato');
+        $table->useActionButton2();
+        $table->addIdTable('dataTable');
+        $table->addUrlVisualizar('index.php/Contato/visualizar');
         $table->addUrlDelete('index.php/Contato/delete');
         $table->useCard();
         $table->useBorder();
         $table->smallRow();
-      
-        
-        return $table->getHTML();
-    
-      }
+        $table->useHover();
 
-    public function deletaContato($id) {
+        return $table->getHTML();
+    }
+
+    public function detalheContato($id) {
+        $contact = new Contact();
+        return $contact->viewContact($id);
+    }
+
+    public function deletaContato($id)
+    {
         $contact = new Contact();
         $contact->deleteContact($id);
     }

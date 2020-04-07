@@ -10,6 +10,7 @@ class Table extends Component
 
 
     private $header_classes = '';
+    private $header_title = '';
     private $nome_table = '';
     private $icon_table = '';
     private $id_table = '';
@@ -35,13 +36,13 @@ class Table extends Component
 
     function getHTML()
     {
-        $html = '<div class="'.$this->header_classes.'">';
+        $html = '<div class="'.$this->header_title.'">';
         $html .= '<i class="'.$this->icon_table.' mr-2"></i>'; 
         $html .= ''.$this->nome_table.''; 
         $html .= '</div>'; 
         $html .= '<div class=" '.$this->class_div. '">';
         $html .= '<div class="table-responsive">';
-        $html .= '<table class="table  ' . $this->body_classes .  '" id="' . $this->id_table . '" width="100%" cellspacing="0">';
+        $html .= '<table class="table ' .$this->body_classes. '" id="' . $this->id_table . '" width="100%" cellspacing="0">';
         $html .= $this->header();
         $html .= $this->body();
         $html .= '</table>';
@@ -53,6 +54,9 @@ class Table extends Component
     public function addHeaderClass($class)
     {
         $this->header_classes .= $class . '';
+    }
+    public function addTitleTable($class_title) {
+        $this->header_title .= $class_title . '';
     }
     public function addIdTable($id_tabela)
     {
@@ -84,7 +88,7 @@ class Table extends Component
     private function header()
     {
 
-        $html = '<thead><tr class="text-center">';
+        $html = '<thead><tr class="'.$this->header_classes.'">';
         foreach ($this->label as $name) {
             $html .= '<th>' . $name . '</th>';
         }
@@ -178,7 +182,7 @@ class Table extends Component
     }
     public function smallRow()
     {
-        $this->body_classes .= 'table-sm';
+        $this->body_classes .= 'table-sm ';
     }
 
     public function useActionButton()
