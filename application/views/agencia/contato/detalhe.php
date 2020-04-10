@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <div class="borda-redonda p-5" style=" box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);">
+            <div class="borda-redonda p-5 sombreamento">
             <a class="text-dark" href="<?=base_url('contato/lista')?>" title="Voltar"><i class="fas fa-angle-double-left style-sombra"></i></a>
                 <h3 class="text-center mb-4">Mensagem <b> #<?= $contato['id'] ?></b></h3>
                 <div class="row ">

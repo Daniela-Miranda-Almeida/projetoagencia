@@ -12,6 +12,7 @@
   <link href="<?= base_url('assets/mdb/css/mdb.min.css') ?>" rel="stylesheet">
   <link href="<?= base_url('assets/mdb/css/style.css') ?>" rel="stylesheet">
   <link href="<?= base_url('assets/mdb/css/dataTables.bootstrap4.css') ?>" rel="stylesheet">
+  <script type="text/javascript" src="<?= base_url('assets/js/mask-cnpj.js') ?>"></script>
 </head>
 
 <body>
