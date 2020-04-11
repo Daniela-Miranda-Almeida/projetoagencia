@@ -16,7 +16,7 @@ class Empresa extends MY_Controller {
         $this->show($html);
     }
     public function info($id) {
-        $this->model->cria_info();
+        $this->model->cria_info($id);
         $form['titulo'] = 'Endereço da Empresa';
         $form['conteudo'] = $this->load->view('agencia/empresa/form_endereco', null, true);
         $html = $this->load->view('agencia/empresa/form', $form, true);

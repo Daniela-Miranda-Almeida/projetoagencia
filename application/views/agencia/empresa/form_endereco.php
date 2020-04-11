@@ -1,6 +1,6 @@
 <div class="col-md-4">
     <div class="md-form mb-0">
-        <input type="text" id="cep_" name="empresa[cep_empresa]" value="<?= set_value('empresa[cep_empresa]') ?><?= isset($empresa) ? $empresa['cep_empresa'] : '' ?>" class="form-control">
+        <input type="text" id="cep_" name="empresa[cep_empresa]" onblur="pesquisacep(this.value);" value="<?= set_value('empresa[cep_empresa]') ?><?= isset($empresa) ? $empresa['cep_empresa'] : '' ?>" class="form-control">
         <label for="cep_">CEP</label>
         <?php echo form_error('empresa[cep_empresa]', '<div class="alert-danger text-center borda-redonda">', '</div>'); ?>
     </div>
